@@ -1,0 +1,4 @@
+alive-progress
+argparse
+bs4
+lxml
