@@ -85,7 +85,7 @@ or:
 
 In both cases, the script sends carriage return as input of the TMUX sessions (with session name `files_*` or `dir_*`), pausing the current `ffuf` scan or restarting the paused `ffuf` scan.
 
-### Pause/restart the TMUX sessions
+### Kill the TMUX sessions
 ```bash
 ./parallel_tmux.sh kill
 ```
