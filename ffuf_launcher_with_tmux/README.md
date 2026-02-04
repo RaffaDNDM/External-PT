@@ -12,7 +12,6 @@ You need the following programs installed on a linux terminal:
 - Create a folder `targets` with all the TXT files with the URLs to be discovered. For example:
 
 ```bash
-<folder_name>
 ├── targets
 │   ├── target1.txt
 │   ├── target2.txt
@@ -35,8 +34,9 @@ https://exampleN.com/
 
 
 ## Run
+### Launch the TMUX sessions
 ```bash
-./parallel_tmux.sh
+./parallel_tmux.sh start
 ```
 
 For each file in the `targets` folder, a new TMUX session will be created.
@@ -45,12 +45,11 @@ For each URL, the script will create a different result file in a `results` sub-
 
 If you want to use a different folder as input:
 ```bash
-./parallel_tmux.sh <folder_name>
+./parallel_tmux.sh start <folder_name>
 ```
 
 **Example of final folder content:**
 ```bash
-<folder_name>
 ├── targets
 │   ├── target1.txt
 │   ├── target2.txt
@@ -72,3 +71,23 @@ If you want to use a different folder as input:
 ├── ffuf_content_discovery.sh
 └── parallel_tmux.sh
 ```
+
+### Pause/restart the TMUX sessions
+```bash
+./parallel_tmux.sh pause
+```
+
+or:
+
+```bash
+./parallel_tmux.sh start
+```
+
+In both cases, the script sends carriage return as input of the TMUX sessions (with session name `files_*` or `dir_*`), pausing the current `ffuf` scan or restarting the paused `ffuf` scan.
+
+### Pause/restart the TMUX sessions
+```bash
+./parallel_tmux.sh kill
+```
+
+The script kills all the TMUX sessions (with session name `files_*` or `dir_*`).
